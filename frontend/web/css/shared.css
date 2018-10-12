@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+  word-wrap: break-word;
+  vertical-align: baseline;
+  overflow-y: scroll;
+}
+body {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  font-size: inherit;
+}
+.container {
+  max-width: 1050px;
+  margin: auto;
+  width: 100%;
+  padding: 0 0.5rem;
+}
+@media screen and (min-width: 641px) {
+  .main-col {
+    width: calc(72% - 0.7 * 1.5rem);
+    float: left;
+  }
+  .right-col {
+    width: calc(28% - 0.3 * 1.5rem);
+    float: right;
+  }
+}
+.clr:after {
+  content: "";
+  clear: both;
+  display: block;
+  height: 0;
+  padding: 0;
+}
+/** IMAGE */
+.image {
+  background-color: #ddd;
+}
+.image > div > img {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.video {
+  background-color: #666;
+}
+.video > div > iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.aspect-ratio .image > div,
+.aspect-ratio .video > div,
+.aspect-ratio .frame,
+.image.aspect-ratio > span,
+.image.aspect-ratio > div,
+.video.aspect-ratio > div,
+.frame.aspect-ratio {
+  display: block;
+  width: 100%;
+  height: 0;
+}
+/** Add your aspect ratios */
+.aspect-ratio.__3x1 .image > div,
+.aspect-ratio.__3x1 .video > div,
+.aspect-ratio.__3x1 .frame,
+.image.aspect-ratio.__3x1 > span,
+.image.aspect-ratio.__3x1 > div,
+.video.aspect-ratio.__3x1 > div,
+.frame.aspect-ratio.__3x1 {
+  padding-bottom: calc(100% / 3);
+}
+.aspect-ratio.__16x9 .image > div,
+.aspect-ratio.__16x9 .video > div,
+.aspect-ratio.__16x9 .frame,
+.image.aspect-ratio.__16x9 > span,
+.image.aspect-ratio.__16x9 > div,
+.video.aspect-ratio.__16x9 > div,
+.frame.aspect-ratio.__16x9 {
+  padding-bottom: calc(900% / 16);
+}
+.aspect-ratio.__3x2 .image > div,
+.aspect-ratio.__3x2 .video > div,
+.aspect-ratio.__3x2 .frame,
+.image.aspect-ratio.__3x2 > span,
+.image.aspect-ratio.__3x2 > div,
+.video.aspect-ratio.__3x2 > div,
+.frame.aspect-ratio.__3x2 {
+  padding-bottom: calc(200% / 3);
+}
+.aspect-ratio.__1x1 .image > div,
+.aspect-ratio.__1x1 .video > div,
+.aspect-ratio.__1x1 .frame,
+.image.aspect-ratio.__1x1 > span,
+.image.aspect-ratio.__1x1 > div,
+.video.aspect-ratio.__1x1 > div,
+.frame.aspect-ratio.__1x1 {
+  padding-bottom: calc(100% / 1);
+}
+/** PARAGRAPH */
+.paragraph * {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.paragraph img {
+  object-fit: contain;
+}
+.paragraph ul,
+.paragraph ol {
+  padding-left: 2em;
+}
+.paragraph {
+  line-height: 1.5;
+}
+.paragraph > :not(:first-child) {
+  margin-top: 0.5em;
+}
+.paragraph h2 {
+  font-size: 1.2em;
+}
+.paragraph h3 {
+  font-size: 1.15em;
+}
+.paragraph h4 {
+  font-size: 1.1em;
+}
+.paragraph a {
+  color: #ff4c3c;
+}
+.paragraph a:hover {
+  border-bottom: 1px solid #ffaaa2;
+}
+.paragraph a:active {
+  opacity: 0.7;
+  border-bottom: none;
+}
+.paragraph table {
+  border-spacing: 0;
+  border-collapse: separate;
+  border: 1px solid #333;
+}
+.paragraph table tr th,
+.paragraph table tr td {
+  border: none;
+  padding: 0.5em;
+}
+.paragraph table tr th:not(:last-child),
+.paragraph table tr td:not(:last-child) {
+  border-right: 1px solid #333;
+}
+.paragraph table tr:not(:last-child) th,
+.paragraph table tr:not(:last-child) td {
+  border-bottom: 1px solid #333;
+}
+@media screen and (min-width: 781px) {
+  .lg-hidden {
+    display: none !important;
+  }
+  .md-only {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 780px) {
+  .lg-only {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 641px) and (max-width: 780px) {
+  .md-hidden {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 641px) {
+  .sm-only {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 640px) {
+  .md-only {
+    display: none !important;
+  }
+  .sm-hidden {
+    display: none !important;
+  }
+}
+/**
+ * LOADING
+ */
+.loading:before,
+.loading-opacity:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+.loading-opacity:before {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.loading:after,
+.loading-opacity:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 101;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-image: url('data:image/svg+xml;utf8,\
+        <svg version="1.1" xmlns="http:%2F%2Fwww.w3.org%2F2000%2Fsvg" xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"\
+        width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">\
+        <path fill="%23ff4c3c" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">\
+        <animateTransform attributeType="xml"\
+        attributeName="transform"\
+        type="rotate"\
+        from="0 25 25"\
+        to="360 25 25"\
+        dur="0.6s"\
+        repeatCount="indefinite"%2F>\
+        <%2Fpath>\
+        <%2Fsvg>');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 1.5em;
+  min-width: 1.5em;
+  max-width: 3em;
+  width: 10%;
+  height: 100%;
+}

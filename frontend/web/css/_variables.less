@@ -1,0 +1,12 @@
+@color-black: #333;
+@color-primary: #ff4c3c;
+@color-highlight: #09c;
+
+@desktop-min: 781px;
+@tablet-min: 641px;
+@tablet-max: 780px;
+@mobile-max: 640px;
+
+@desktop: ~"only screen and (min-width: @{desktop-min})";
+@tablet: ~"only screen and (min-width: @{tablet-min}) and (max-width: @{tablet-max})";
+@mobile: ~"only screen and (max-width: @{mobile-max})";
