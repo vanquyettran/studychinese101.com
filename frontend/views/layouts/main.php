@@ -76,7 +76,7 @@ $headerBanners = $this->context->headerBanners;
         <div id="header">
             <div class="container">
                 <a class="text-logo" href="<?= Url::home(true) ?>" title="<?= Yii::$app->name ?>">
-                    <span class="text"><b>STUDY</b>CHINESE101.COM</span>
+                    <span class="text"><?= Yii::$app->name ?></span>
                 </a>
             </div>
         </div>
