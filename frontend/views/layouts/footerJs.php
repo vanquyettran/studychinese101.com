@@ -44,13 +44,13 @@
             var iFrames = para.querySelectorAll('iframe[src^="https://www.youtube.com/embed/"]');
             [].forEach.call(iFrames, function (iFrame) {
                 if (!iFrame.getAttribute('height')) {
-                    var width = iFrame.getAttribute('width');
+                    var width = Number.parseInt(iFrame.getAttribute('width'));
                     iFrame.removeAttribute('width');
                     var wrapperInner = elm('div', null);
                     var wrapper = elm('div', wrapperInner, {
                         'class': 'video aspect-ratio __16x9',
                         'style': style({
-                            maxWidth: width
+                            maxWidth: width + 'px !important'
                         })
                     });
                     iFrame.parentNode.insertBefore(wrapper, iFrame);
