@@ -126,10 +126,10 @@ button {
 /** PARAGRAPH */
 .paragraph * {
   max-width: 100% !important;
-  height: auto !important;
 }
 .paragraph img {
   object-fit: contain;
+  height: auto !important;
 }
 .paragraph ul,
 .paragraph ol {
@@ -260,3 +260,4 @@ button {
   width: 10%;
   height: 100%;
 }
+/*# sourceMappingURL=shared.css.map */
