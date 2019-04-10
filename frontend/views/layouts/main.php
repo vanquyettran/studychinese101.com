@@ -26,16 +26,6 @@ $this->title = $seoInfo->page_title ? $seoInfo->page_title : Yii::$app->name;
 
 $hasPageHeadline = in_array(Yii::$app->requestedRoute, ['site/index', 'article/category']);
 
-$regCss = function (...$cssFiles) {
-    foreach ($cssFiles as $cssFile) {
-        echo str_replace(
-            ['@img'],
-            [Yii::getAlias('@web/img')],
-            file_get_contents(Yii::getAlias("@webroot/css/$cssFile.css"))
-        );
-    }
-};
-
 /**
  * @var Banner[] $headerBanners
  */
@@ -51,7 +41,6 @@ $headerBanners = $this->context->headerBanners;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
-    <style><?php $regCss('shared', 'icons', 'separated', 'slider'); ?></style>
     <?= $this->render('//layouts/headerJs') ?>
 </head>
 <body data-sticky-container="global">
