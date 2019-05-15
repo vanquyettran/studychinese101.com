@@ -160,11 +160,14 @@ button {
   opacity: 0.7;
   border-bottom: none;
 }
-.paragraph .table-wrapper .table-scroll-msg {
+.paragraph .table-scroll-msg {
   font-size: 0.9em;
   color: #fff;
   background: #bbb;
   padding: 0.1em 0.5em;
+}
+.paragraph .table-scroll-view {
+  overflow-x: auto;
 }
 .paragraph table {
   border-spacing: 0;

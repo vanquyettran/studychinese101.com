@@ -62,27 +62,24 @@
             var tables = para.querySelectorAll('table');
             [].forEach.call(tables, function (table) {
                 var parent = table.parentNode;
-                var wrapper = elm('div', null, {
-                    'class': 'table-wrapper',
-                    style: style({
-                        overflowX: 'auto'
-                    })
+                var scrollView = elm('div', null, {
+                    'class': 'table-scroll-view'
                 });
-                parent.insertBefore(wrapper, table);
-                wrapper.appendChild(table);
+                parent.insertBefore(scrollView, table);
+                scrollView.appendChild(table);
 
 
                 var scrollMsg = elm('div', 'Trượt ngang để xem hết bảng', {
                     'class': 'table-scroll-msg'
                 });
                 var updateScrollMsgVisibility = function () {
-                    if (wrapper.clientWidth < wrapper.scrollWidth) {
+                    if (scrollView.clientWidth < scrollView.scrollWidth) {
                         if (!scrollMsg.parentNode) {
-                            wrapper.insertBefore(scrollMsg, table);
+                            parent.insertBefore(scrollMsg, scrollView);
                         }
                     } else {
                         if (scrollMsg.parentNode) {
-                            wrapper.removeChild(scrollMsg);
+                            parent.removeChild(scrollMsg);
                         }
                     }
                 };
