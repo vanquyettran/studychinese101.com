@@ -168,6 +168,7 @@ button {
 }
 .paragraph .table-scroll-view {
   overflow-x: auto;
+  margin-top: 0;
 }
 .paragraph table {
   border-spacing: 0;
