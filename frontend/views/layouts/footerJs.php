@@ -62,9 +62,32 @@
             var tables = para.querySelectorAll('table');
             [].forEach.call(tables, function (table) {
                 var parent = table.parentNode;
-                var wrapper = elm('div', null, {'class': 'table-wrapper'});
+                var wrapper = elm('div', null, {
+                    'class': 'table-wrapper',
+                    style: style({
+                        overflowX: 'auto'
+                    })
+                });
                 parent.insertBefore(wrapper, table);
                 wrapper.appendChild(table);
+
+
+                var scrollMsg = elm('div', 'Trượt ngang để xem hết bảng', {
+                    'class': 'table-scroll-msg'
+                });
+                var updateScrollMsgVisibility = function () {
+                    if (wrapper.clientWidth < wrapper.scrollWidth) {
+                        if (!scrollMsg.parentNode) {
+                            wrapper.insertBefore(scrollMsg, table);
+                        }
+                    } else {
+                        if (scrollMsg.parentNode) {
+                            wrapper.removeChild(scrollMsg);
+                        }
+                    }
+                };
+                updateScrollMsgVisibility();
+                window.addEventListener('resize', updateScrollMsgVisibility);
             });
         });
     }(document.querySelectorAll('.paragraph'));
