@@ -63,7 +63,7 @@
             [].forEach.call(tables, function (table) {
                 var parent = table.parentNode;
                 var wrapper = elm('div', null, {'class': 'table-wrapper'});
-                parent.insertBefore(table, wrapper);
+                parent.insertBefore(wrapper, table);
                 wrapper.appendChild(table);
             });
         });
