@@ -38,9 +38,9 @@
 </script>
 
 <script>
-    // Youtube video
     !function (paras) {
         [].forEach.call(paras, function (para) {
+            // Youtube video
             var iFrames = para.querySelectorAll('iframe[src^="https://www.youtube.com/embed/"]');
             [].forEach.call(iFrames, function (iFrame) {
                 if (!iFrame.getAttribute('height')) {
@@ -56,6 +56,15 @@
                     iFrame.parentNode.insertBefore(wrapper, iFrame);
                     wrapperInner.appendChild(iFrame);
                 }
+            });
+
+            // Table responsive
+            var tables = para.querySelectorAll('table');
+            [].forEach.call(tables, function (table) {
+                var parent = table.parentNode;
+                var wrapper = elm('div', null, {'class': 'table-wrapper'});
+                parent.insertBefore(table, wrapper);
+                wrapper.appendChild(table);
             });
         });
     }(document.querySelectorAll('.paragraph'));
