@@ -23,6 +23,7 @@ class SiteParam extends \common\db\MyActiveRecord
     const FACEBOOK_PAGE_URL = 'facebook_page_url';
     const FOOTER_INFO_HTML = 'footer_info_html';
     const TRACKING_CODE = 'tracking_code';
+    const HEADER_TRACKING_CODE = 'header_tracking_code';
 
     /**
      * @return string[]
@@ -39,6 +40,7 @@ class SiteParam extends \common\db\MyActiveRecord
             self::FACEBOOK_PAGE_URL => 'Facebook page URL',
             self::FOOTER_INFO_HTML => 'Footer Info HTML',
             self::TRACKING_CODE => 'Tracking Code',
+            self::HEADER_TRACKING_CODE => 'Header Tracking Code',
         ];
     }
 

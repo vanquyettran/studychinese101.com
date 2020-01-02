@@ -41,6 +41,7 @@ $headerBanners = $this->context->headerBanners;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
+    <?= $this->render('//layouts/headerTracking') ?>
     <?= $this->render('//layouts/headerJs') ?>
 </head>
 <body data-sticky-container="global">
