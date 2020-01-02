@@ -38,9 +38,9 @@
 </script>
 
 <script>
-    // Youtube video
     !function (paras) {
         [].forEach.call(paras, function (para) {
+            // Youtube video
             var iFrames = para.querySelectorAll('iframe[src^="https://www.youtube.com/embed/"]');
             [].forEach.call(iFrames, function (iFrame) {
                 if (!iFrame.getAttribute('height')) {
@@ -56,6 +56,35 @@
                     iFrame.parentNode.insertBefore(wrapper, iFrame);
                     wrapperInner.appendChild(iFrame);
                 }
+            });
+
+            // Table responsive
+            var tables = para.querySelectorAll('table');
+            [].forEach.call(tables, function (table) {
+                var parent = table.parentNode;
+                var scrollView = elm('div', null, {
+                    'class': 'table-scroll-view'
+                });
+                parent.insertBefore(scrollView, table);
+                scrollView.appendChild(table);
+
+
+                var scrollMsg = elm('div', 'Trượt ngang để xem hết bảng', {
+                    'class': 'table-scroll-msg'
+                });
+                var updateScrollMsgVisibility = function () {
+                    if (scrollView.clientWidth < scrollView.scrollWidth) {
+                        if (!scrollMsg.parentNode) {
+                            parent.insertBefore(scrollMsg, scrollView);
+                        }
+                    } else {
+                        if (scrollMsg.parentNode) {
+                            parent.removeChild(scrollMsg);
+                        }
+                    }
+                };
+                updateScrollMsgVisibility();
+                window.addEventListener('resize', updateScrollMsgVisibility);
             });
         });
     }(document.querySelectorAll('.paragraph'));
