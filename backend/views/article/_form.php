@@ -169,7 +169,6 @@ if ($model->production_status === null) {
             });
             product_inputs_init();
         }
-        console.log(video_category_ids, product_category_ids, category_id);
     };
     category_id_input.addEventListener('change', updateInputDisplays);
     updateInputDisplays();
