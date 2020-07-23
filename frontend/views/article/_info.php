@@ -29,4 +29,3 @@ if ($isProduct) {
     <?php
 }
 ?>
-
