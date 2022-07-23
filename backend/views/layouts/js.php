@@ -167,7 +167,7 @@ use yii\web\View;
         }
         
         var strToDate = function (str) {
-            return new Date(str.replace(' ', 'T').concat('.000Z'));
+            return new Date(...str.split(/\D/).map(Number));
         };
 
         var visibleDatetimeInput = document.createElement("input");
