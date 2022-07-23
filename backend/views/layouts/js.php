@@ -165,6 +165,10 @@ use yii\web\View;
         if ("string" === typeof datetimeInput) {
             datetimeInput = document.getElementById(datetimeInput);
         }
+        
+        var strToDate = function (str) {
+            return new Date(str.replace(' ', 'T').concat('.000Z'));
+        };
 
         var visibleDatetimeInput = document.createElement("input");
         visibleDatetimeInput.setAttribute("type", "text");
@@ -173,7 +177,7 @@ use yii\web\View;
         datetimeInput.setAttribute("type", "hidden");
 
         var picker = new DatetimePicker(
-            datetimeInput.value ? new Date(datetimeInput.value) : new Date(),
+            datetimeInput.value ? strToDate(datetimeInput.value) : new Date(),
             {
                 "weekdays": ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
                 "months": ["Giêng", "Hai", "Ba", "Tư", "Năm", "Sáu", "Bảy", "Tám", "Chín", "Mười", "Mười Một", "Mười Hai"],
@@ -208,9 +212,9 @@ use yii\web\View;
                     : ["yearMonthBlock", "dateBlock", "timeBlock", "controlBlock"]
             }
         );
-
+        
         datetimeInput.addEventListener("change", function () {
-            var time = (new Date(datetimeInput.value)).getTime();
+            var time = strToDate(datetimeInput.value).getTime();
             if (!isNaN(time)) {
                 picker.current.time = time;
             } else {
@@ -219,7 +223,7 @@ use yii\web\View;
         });
 
         visibleDatetimeInput.addEventListener("change", function () {
-            var time = (new Date(visibleDatetimeInput.value)).getTime();
+            var time = strToDate(visibleDatetimeInput.value).getTime();
             if (!isNaN(time)) {
                 picker.current.time = time;
             } else {
@@ -228,7 +232,7 @@ use yii\web\View;
         });
 
         visibleDatetimeInput.addEventListener("focusin", function () {
-            picker.current.time = (new Date(datetimeInput.value)).getTime();
+            picker.current.time = strToDate(datetimeInput.value).getTime();
             widget.classList.add("active");
         });
 
