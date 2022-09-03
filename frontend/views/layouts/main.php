@@ -117,7 +117,6 @@ $headerBanners = $this->context->headerBanners;
     <?= $this->render('//layouts/footerJs') ?>
 
     <?= $this->render('//layouts/fbSDK') ?>
-    <?= $this->render('//layouts/googlePlatform') ?>
     <?= $this->render('//layouts/twitterWidget') ?>
     <?= $this->render('//layouts/tracking') ?>
 <?php $this->endBody() ?>

@@ -13,29 +13,28 @@ if (!isset($url)) {
     $url = \yii\helpers\Url::current([], true);
 }
 ?>
-<div class="social-shares clr">
-    <div class="item">
-        <div id="fb-like" class="fb-like" data-href="<?= $url ?>" data-layout="button_count" data-size="small" data-action="like" data-show-faces="true" data-share="true"></div>
-    </div>
-    <div class="item">
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
-    </div>
-    <div class="item">
-        <div class="g-plus" data-action="share"></div>
-    </div>
-</div>
 
 <style>
-    .social-shares {
+    .social-share {
         display: block;
-        line-height: 0;
+        margin-top: 0.5em;
     }
-    .social-shares > .item {
-        display: inline-block;
-    }
-    .social-shares > .item > * {
+    .social-share-item > * {
         display: block !important;
         float: left !important;
-        line-height: normal;
+    }
+    .social-share-item {
+        margin: 0;
+        height: 20px;
+        display: inline-block;
     }
 </style>
+
+<div class="social-share clr">
+    <div class="social-share-item clr">
+        <div id="fb-like" class="fb-like" data-href="<?= $url ?>" data-layout="button_count" data-size="small" data-action="like" data-show-faces="true" data-share="true"></div>
+    </div>
+    <div class="social-share-item clr">
+        <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+    </div>
+</div>
