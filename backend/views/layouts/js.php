@@ -23,8 +23,11 @@ use yii\web\View;
             height: 300,
 
             // Configure your file manager integration. This example uses CKFinder 3 for PHP.
-            filebrowserImageBrowseUrl: '<?= Yii::getAlias('@web/libs/ckfinder/ckfinder.html?type=Images') ?>',
             filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserImageBrowseUrl: '<?php echo Url::to([
+                '/ckeditor/browse-image',
+                Yii::$app->request->csrfParam => Yii::$app->request->csrfToken
+            ]) ?>',
             filebrowserImageUploadUrl: '<?php echo Url::to([
                 '/api/ckeditor-upload-image',
                 Yii::$app->request->csrfParam => Yii::$app->request->csrfToken
@@ -167,7 +170,9 @@ use yii\web\View;
         }
         
         var strToDate = function (str) {
-            return new Date(...str.split(/\D/).map(Number));
+            var numbers = str.split(/\D/).map(Number);
+            numbers[1] -= 1; // month_index = month - 1
+            return new Date(...numbers);
         };
 
         var visibleDatetimeInput = document.createElement("input");
