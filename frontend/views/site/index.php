@@ -13,36 +13,13 @@ use yii\helpers\Html;
 <div class="products-by-categories">
     <?php
     foreach (ArticleCategory::indexData(true) as $category) {
-        if (!$category->parent_id) {
-            $child_categories = $category->findChildren();
+        if ($category->parent_id === null && $category->featured === 1) {
             ?>
                 <div class="heading">
                     <?= $category->viewAnchor(null, ['class' => 'text-content']) ?>
                 </div>
                 <div class="body">
                     <?php
-                    if (count($child_categories) > 0) {
-                        foreach ($child_categories as $child_category) {
-                            $articles = ArticleController::findModels($child_category->getAllArticles(), 1, 5);
-                            if (count($articles) > 0) {
-                                ?>
-                                <div class="child-heading">
-                                    <?= $child_category->viewAnchor(null, ['class' => 'text-content']) ?>
-                                </div>
-                                <div class="child-body">
-                                    <div class="product-thumbnail-list aspect-ratio __1x1 clr">
-                                        <ul class="clr">
-                                            <?= $this->render('//article/_thumbnailList', [
-                                                'models' => $articles,
-                                                'imageSize' => '340x340'
-                                            ]) ?>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                        }
-                    } else {
                         $articles = ArticleController::findModels($category->getAllArticles(), 1, 5);
 
                         if ($category->type === ArticleCategory::TYPE_PRODUCT) {
