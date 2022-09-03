@@ -386,6 +386,7 @@ $this->registerJsFile(
         img_select_elm.parentNode.insertBefore(process_bar, img_select_elm);
         img_select_elm.parentNode.insertBefore(img_input, img_select_elm);
         img_preview_wrapper.className = "image-preview-wrapper";
+        img_preview_wrapper.id = "image-preview-wrapper--" + img_select_id;
         img_input.className = "image-file-input";
         img_input.type = "file";
         img_input.accept = "image/*";
