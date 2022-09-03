@@ -40,9 +40,6 @@ use yii\helpers\Html;
                                 ]) ?>
                             </ul>
                         </div>
-                        <?php
-                        }
-                    ?>
                 </div>
             <?php
         }
