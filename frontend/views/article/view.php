@@ -37,9 +37,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => $model->view
             <?php
         }
         ?>
-        <div class="top-shares">
-            <?= $this->render('//layouts/likeShare') ?>
-        </div>
+        
         <?php
         switch ($modelType) {
             case ArticleCategory::TYPE_NEWS:
@@ -60,9 +58,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => $model->view
         <div class="content paragraph">
             <?= $model->content ?>
         </div>
-        <div class="bottom-shares">
-            <?= $this->render('//layouts/likeShare') ?>
-        </div>
+        
         <div class="comments">
             <?= $this->render('//layouts/fbComment') ?>
         </div>
@@ -72,9 +68,6 @@ $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => $model->view
     if (count($relatedItems) > 0) {
         ?>
         <section class="article-related">
-            <!--<div class="heading">
-                <div class="text-content">Xem thêm</div>
-            </div>-->
             <div class="body">
                 <?php
                 $category = $model->articleCategory;
